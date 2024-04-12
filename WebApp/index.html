@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="AppMobile.css">
+</head>
+
+<body>
+    <header>
+        <h1>TourView</h1>
+        <input type="text" id="search" placeholder="Pesquisar cidade">
+    </header>
+
+    <div id="map-container">
+        <img id="map" src="mapa_recife.jpg" alt="Mapa de Recife com pontos turísticos">
+        
+        <!-- Pontos turísticos -->
+        <div class="marker" id="marco_zero" style="top: 30%; left: 40%;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSmRugIOuG
+            7OO7oVey2hMWuYVIlKLl1kjtsWOsw3Ixw4lgmijHDFIMhE3z3qK88wNwseI&usqp=CAU" alt="Marco Zero"></div>
+            Uma das praças mais importantes da cidade, localizada no coração do Recife Antigo
+        <div class="marker" id="recife_antigo" style="top: 50%; left: 30%;"><img src="https://media-cdn.tripadvisor.com/media/photo-s/10/73/d7/bb/recife-antigo-rua-do.jpg" alt="Recife Antigo"></div>
+        Um bairro com construções que datam do século XVIII, inclui pontos como o Cais do Sertão, o Paço Alfândega, o Paço do Frevo e vários bares e restaurantes
+        <div class="marker" id="boa_viagem" style="top: 70%; left: 50%;"><img src="https://media-cdn.tripadvisor.com/media/photo-s/11/ec/db/54/praia-da-boa-viagem-vista.jpg" alt="Praia de Boa Viagem"></div>
+    </div>
+     Uma das praias mais famosas do Brasil, localizada na Zona Sul do Recife. Sua orla contempla bares, 
+    quiosques e diversas atividades para o lazer. </body>
+
+    <script>
+        // Função para atualizar o mapa e os pontos turísticos
+        function updateMap(city) {
+            // Aqui você pode adicionar lógica para carregar um mapa diferente com base na cidade selecionada
+            // Por simplicidade, vou apenas atualizar a imagem do mapa
+            document.getElementById('map').src = city.toLowerCase() + '_map.jpg';
+
+            // Atualiza as fotos dos pontos turísticos
+            document.getElementById('marco_zero').querySelector('img').src = city.toLowerCase() + '_marco_zero.jpg';
+            document.getElementById('recife_antigo').querySelector('img').src = city.toLowerCase() + '_recife_antigo.jpg';
+            document.getElementById('boa_viagem').querySelector('img').src = city.toLowerCase() + '_boa_viagem.jpg';
+        }
+
+        // Evento de pesquisa da cidade
+        document.getElementById('search').addEventListener('change', function() {
+            var city = this.value;
+            updateMap(city);
+        });
+    </script>
+</body>
+</html>
